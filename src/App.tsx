@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Link, buttonVariants, cn } from '@heroui/react'
-import { SiGithub } from '@icons-pack/react-simple-icons'
-import { ArrowUpRight } from '@phosphor-icons/react'
+import GitHubButton from 'react-github-btn'
 import {
   BackgroundEffects,
   type BackgroundVariant,
@@ -33,23 +31,17 @@ function App() {
           こんにちは、世界。
         </h1>
 
-        <Link
-          href={GITHUB_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            buttonVariants({ variant: 'tertiary', size: 'lg' }),
-            'group mt-8 touch-manipulation gap-2.5 rounded-full border border-white/10 bg-surface/80 px-5 text-foreground no-underline backdrop-blur-md hover:border-white/25 hover:bg-surface-secondary/70 hover:no-underline sm:mt-10',
-          )}
-        >
-          <SiGithub size={18} aria-hidden="true" />
-          <span>GitHub</span>
-          <ArrowUpRight
-            size={16}
-            className="text-muted transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
-            aria-hidden="true"
-          />
-        </Link>
+        <div className="mt-8 touch-manipulation sm:mt-10">
+          <GitHubButton
+            href={GITHUB_URL}
+            data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Follow @Haruday0 on GitHub"
+          >
+            Follow @Haruday0
+          </GitHubButton>
+        </div>
       </main>
     </>
   )
