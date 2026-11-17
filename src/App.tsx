@@ -1,34 +1,16 @@
-import { useState } from 'react'
 import { Link, buttonVariants, cn } from '@heroui/react'
 import { SiGithub } from '@icons-pack/react-simple-icons'
 import { ArrowUpRight } from '@phosphor-icons/react'
-import {
-  BackgroundEffects,
-  type BackgroundVariant,
-} from './components/BackgroundEffects'
+import { BackgroundEffects } from './components/BackgroundEffects'
 
 const GITHUB_URL = 'https://github.com/Haruday0'
 
-const BACKGROUND_VARIANTS: readonly BackgroundVariant[] = [
-  'shooting-stars',
-  'light-rays',
-  'particles',
-]
-
-function pickRandomVariant(): BackgroundVariant {
-  return BACKGROUND_VARIANTS[
-    Math.floor(Math.random() * BACKGROUND_VARIANTS.length)
-  ]
-}
-
 function App() {
-  const [bgVariant] = useState<BackgroundVariant>(pickRandomVariant)
-
   return (
     <>
-      <BackgroundEffects variant={bgVariant} />
+      <BackgroundEffects />
 
-      <main className="relative z-10 flex min-h-dvh touch-none flex-col items-center px-6 pt-[18dvh] pb-16 text-center select-none sm:pt-[20dvh]">
+      <main className="relative z-10 flex min-h-dvh flex-col items-center px-6 pt-[18dvh] pb-16 text-center select-none sm:pt-[20dvh]">
         <h1 className="text-[clamp(1.75rem,1rem+4.5vw,3.75rem)] leading-[1.15] font-normal tracking-tight text-foreground">
           こんにちは、世界。
         </h1>
