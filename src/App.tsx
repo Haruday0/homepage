@@ -28,7 +28,7 @@ function App() {
     <>
       <BackgroundEffects variant={bgVariant} />
 
-      <main className="relative z-10 flex min-h-dvh touch-pan-down flex-col items-center px-6 pt-[18dvh] pb-16 text-center select-none sm:pt-[20dvh]">
+      <main className="relative z-10 flex min-h-dvh touch-none flex-col items-center px-6 pt-[18dvh] pb-16 text-center select-none sm:pt-[20dvh]">
         <h1 className="text-[clamp(1.75rem,1rem+4.5vw,3.75rem)] leading-[1.15] font-normal tracking-tight text-foreground">
           こんにちは、世界。
         </h1>

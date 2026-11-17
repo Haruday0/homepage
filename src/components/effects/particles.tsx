@@ -131,25 +131,14 @@ export const Particles: React.FC<ParticlesProps> = ({
       }
     }
 
-    const updatePointer = (clientX: number, clientY: number) => {
+    const handlePointerMove = (event: PointerEvent) => {
       const rect = canvas.getBoundingClientRect()
       const { w, h } = canvasSize
-      const x = clientX - rect.left - w / 2
-      const y = clientY - rect.top - h / 2
+      const x = event.clientX - rect.left - w / 2
+      const y = event.clientY - rect.top - h / 2
       if (x < w / 2 && x > -w / 2 && y < h / 2 && y > -h / 2) {
         mouse.x = x
         mouse.y = y
-      }
-    }
-
-    const handlePointerMove = (event: PointerEvent) => {
-      updatePointer(event.clientX, event.clientY)
-    }
-
-    const handleTouchMove = (event: TouchEvent) => {
-      const touch = event.touches[0]
-      if (touch) {
-        updatePointer(touch.clientX, touch.clientY)
       }
     }
 
@@ -202,8 +191,6 @@ export const Particles: React.FC<ParticlesProps> = ({
     animate()
     window.addEventListener('pointermove', handlePointerMove, { passive: true })
     window.addEventListener('pointerdown', handlePointerMove, { passive: true })
-    window.addEventListener('touchstart', handleTouchMove, { passive: true })
-    window.addEventListener('touchmove', handleTouchMove, { passive: true })
     window.addEventListener('resize', handleResize)
 
     return () => {
@@ -211,8 +198,6 @@ export const Particles: React.FC<ParticlesProps> = ({
       if (resizeTimeout) clearTimeout(resizeTimeout)
       window.removeEventListener('pointermove', handlePointerMove)
       window.removeEventListener('pointerdown', handlePointerMove)
-      window.removeEventListener('touchstart', handleTouchMove)
-      window.removeEventListener('touchmove', handleTouchMove)
       window.removeEventListener('resize', handleResize)
     }
   }, [color, ease, quantity, refresh, size, staticity, vx, vy])
